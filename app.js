@@ -10,10 +10,20 @@ function weather() {
             return data
         }).then((data) => {
             console.log(data)
+            const currentDate = new Date();
             document.getElementById('place').innerText=data.name
             document.getElementById('temp').innerText=Math.floor(data.main.temp)-273+"°C"
             document.getElementById('description').innerText=data.weather[0].description.toUpperCase()  
             document.getElementById('para').innerText="Feels Like "+(Math.floor(data.main.feels_like)-273)+"°C"
+            document.getElementById('fl').innerText=(Math.floor(data.main.feels_like)-273)+"°C"
+            document.getElementById('humidity').innerText=data.main.humidity
+            document.getElementById('visi').innerText=data.visibility/1000+"KM"
+            document.getElementById('pressure').innerText=data.main.pressure
+            document.getElementById('uv').innerText="weaker"
+            document.getElementById('force').innerText="Force3"
+            
+
+
             
 
         }).catch(() => {
